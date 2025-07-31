@@ -139,15 +139,53 @@
             <div class="form-group row">
               <div class="col-sm-10 offset-sm-2">
                 <button
-                  onclick="valorPedido()"
-                  type="submit"
+                  type="button"
                   class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#qrCodeModal"
                 >
                   Fazer Pedido
                 </button>
               </div>
             </div>
             <div id="total">Total: R$ 0,00</div>
+
+            <div
+              class="modal fade"
+              id="qrCodeModal"
+              tabindex="-1"
+              aria-labelledby="qrCodeModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="qrCodeModalLabel">
+                      QR Code para Pagamento Pix
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Total: <span id="totalModal"></span></p>
+                    <div class="qr-code"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Fechar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </section>
