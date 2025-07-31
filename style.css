@@ -1,0 +1,53 @@
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+.formulario-pedido {
+  padding: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+#total {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+h2 {
+  margin: 10px;
+}
+h1 {
+  text-align: center;
+}
+.formulario-pedido {
+  height: 100vh;
+}
+form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+form input,
+form select {
+  height: 50px;
+}
+.final button {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#total {
+  font-size: 38px;
+  font-weight: bold;
+}
+.final {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
