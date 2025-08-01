@@ -1,21 +1,32 @@
+// Função para calcular o valor total do pedido
 function valorPedido() {
   let total = 0;
+
   const prato = document.getElementById("prato");
   const precoPrato = prato.options[prato.selectedIndex].getAttribute("preco");
+
   const bebida = document.getElementById("bebida");
   const precoBebida =
     bebida.options[bebida.selectedIndex].getAttribute("preco");
 
-  total = parseInt(precoPrato) + parseInt(precoBebida);
-  document.getElementById("total").innerHTML = "Total: R$ " + total;
-  document.getElementById("totalModal").innerHTML = "R$ " + total;
-}
-window.addEventListener("load", valorPedido);
-window.addEventListener("change", valorPedido);
+  const valorPrato = precoPrato ? parseInt(precoPrato) : 0;
+  const valorBebida = precoBebida ? parseInt(precoBebida) : 0;
 
+  total = valorPrato + valorBebida;
+
+  document.getElementById("total").innerHTML = "Total: R$ " + total + ",00";
+  document.getElementById("totalModal").innerHTML = "R$ " + total + ",00";
+
+  return total;
+}
+
+document.getElementById("prato").addEventListener("change", valorPedido);
+document.getElementById("bebida").addEventListener("change", valorPedido);
+
+// Função para gerar o QR Code
 function gerarQrCodePix(pixPayload) {
   try {
-    const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixPayload}`;
+    const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Total_a_pagar_R$_${pixPayload}`;
     const qrCodeContainer = document.querySelector(".qr-code");
     qrCodeContainer.innerHTML = "";
 
@@ -31,5 +42,8 @@ function gerarQrCodePix(pixPayload) {
 
 const qrCodeModal = document.getElementById("qrCodeModal");
 qrCodeModal.addEventListener("show.bs.modal", function (event) {
-  gerarQrCodePix(2199751684);
+  const total = valorPedido();
+  gerarQrCodePix(total);
 });
+
+window.addEventListener("load", valorPedido);

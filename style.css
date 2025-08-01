@@ -1,9 +1,16 @@
+/* ---- FONTES IMPORTADAS ---- */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap");
 
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #f8f9fa;
   color: #343a40;
+  line-height: 1.6;
+}
+
+main {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5em;
 }
 
 .header {
@@ -18,7 +25,8 @@ body {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   color: #e0ac4a !important;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
 }
 
 .nav-link {
@@ -47,16 +55,24 @@ body {
   font-size: 3rem;
 }
 
-.promo-cards {
-  background-color: #fff;
-  padding: 50px 0;
+.promo-cards,
+.cardapio,
+.bebidas,
+.formulario-pedido {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-.promo-cards h2 {
+.promo-cards h2,
+.cardapio h2,
+.bebidas h2,
+.formulario-pedido h2,
+.container.my-5.text-center h2 {
   font-family: "Playfair Display", serif;
-  color: #343a40;
-  margin-bottom: 30px;
-  font-size: 2.5rem;
+  color: #e0ac4a;
+  margin-bottom: 3rem;
+  font-size: 2.8rem;
+  letter-spacing: 1px;
 }
 
 .card {
@@ -88,16 +104,14 @@ body {
   color: #e0ac4a;
 }
 
-.container.my-5.text-center {
-  background-color: #fff;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.cardapio .card-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
 }
 
-.container.my-5.text-center h2 {
-  font-family: "Playfair Display", serif;
-  color: #e0ac4a;
+.cardapio .card-text {
+  font-weight: 700;
+  color: #343a40;
 }
 
 .btn-primary {
@@ -122,36 +136,47 @@ body {
   border-color: #212529;
 }
 
-.cardapio h2,
-.formulario-pedido h2 {
-  font-family: "Playfair Display", serif;
-  color: #e0ac4a;
-  margin-bottom: 20px;
-}
-
-.cardapio .card-title {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-}
-
-.cardapio .card-text {
-  font-weight: 700;
-  color: #343a40;
-}
-
 .formulario-pedido {
-  padding: 40px;
   background-color: #f8f9fa;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+}
+
+form input,
+form select {
+  height: 50px;
 }
 
 .form-group label {
   font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 #total {
   font-size: 38px;
   font-weight: bold;
   color: #e0ac4a;
+  text-align: center;
+}
+
+.final button {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.final {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 .modal-content {
@@ -182,33 +207,146 @@ body {
   align-items: center;
 }
 
-.formulario-pedido {
-  height: 100vh;
+.carousel-item img {
+  height: 550px;
+  object-fit: cover;
+  filter: brightness(0.7);
 }
 
-form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 40px;
+.carousel-indicators [data-bs-target] {
+  background-color: #ffffff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #343a40;
+  margin: 0 5px;
+  opacity: 0.7;
+}
+
+.carousel-indicators .active {
+  background-color: #e0ac4a;
+  opacity: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(52, 58, 64, 0.5);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev {
+  left: 2rem;
+}
+
+.carousel-control-next {
+  right: 2rem;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(224, 172, 74, 0.8);
+}
+
+.carousel-caption {
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  border-radius: 10px;
+  bottom: 3rem;
+}
+
+.carousel-caption h5 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-caption p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #e0ac4a;
+  transition: width 0.4s ease-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #e0ac4a !important;
+}
+
+.btn-primary,
+.btn-success {
+  transition: transform 0.2s ease-out, background-color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.2s ease-out;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 form input,
 form select {
-  height: 50px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.final button {
-  padding: 15px 30px;
-  font-size: 20px;
-  font-weight: bold;
+form input:focus,
+form select:focus {
+  border-color: #e0ac4a;
+  box-shadow: 0 0 0 0.25rem rgba(224, 172, 74, 0.35);
+  outline: none;
 }
 
-.final {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
+.carousel-item .carousel-caption {
+  opacity: 0;
+  transform: translateY(30px);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.carousel-item.active .carousel-caption {
+  animation-name: fadeInUp;
+  animation-delay: 0.1s;
 }
